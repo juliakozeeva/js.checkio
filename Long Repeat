@@ -1,0 +1,33 @@
+"use strict";
+
+function longRepeat(line) {
+    // length the longest substring that consists of the same char
+    let max = 0;
+    let tempMax = 0;
+    for ( let i = 0; i < line.length - 1; i++) 
+    {
+        if(line[i] == line[i+1])
+        {
+            tempMax++;
+            if (tempMax > max)
+            {
+                max = tempMax;
+            }
+        }
+        else 
+        {
+            tempMax = 0;
+        }
+    }
+    if (line.length ==0)
+        return 0;
+    return max + 1;
+}
+
+var assert = require('assert');
+
+if (!global.is_checking) {
+    assert.equal(longRepeat('sdsffffse'), 4, "First")
+    assert.equal(longRepeat('ddvvrwwwrggg'), 3, "Second")
+    console.log('"Run" is good. How is "Check"?');
+}
